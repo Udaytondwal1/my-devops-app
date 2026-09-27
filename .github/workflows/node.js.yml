@@ -1,0 +1,32 @@
+name: ci-workflow
+
+on: push
+  branches: [master, main]
+
+jobs: 
+    continues-integration:
+      runs-on: ubuntu-latest
+
+      steps: 
+       - name: checkout
+         uses: actions/checkout@v4
+
+       - name: setup node js
+         uses: actions/setup-node@v4
+         with: 
+          node-version: '20'
+          cache: 'npm'
+
+       - name: install-dependancy
+         uses: npm ci
+
+       - name: run test
+         uses: npm run
+
+       - name: build project
+         uses: npm run build
+
+      
+
+      
+  
