@@ -19,10 +19,10 @@ jobs:
           cache: 'npm'
 
        - name: install-dependancy
-         uses: npm ci
+         uses: npm install
 
        - name: run test
-         uses: npm run
+         uses: npm test
 
        - name: build project
          uses: npm run build
